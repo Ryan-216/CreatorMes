@@ -55,12 +55,11 @@ bool getStartArg(int argc, char* argv[]) {
 	std::string regIp = "";
 #endif
 
-	
 	int currIndex = 1;
 	bool isSetDb = false;
 	while (currIndex < argc)
 	{
-		auto args = StringUtil::split(argv[currIndex], "=");
+		auto args = StringUtil::split(argv[currIndex], "=");// argv格式：prefix1=val1 prefix2=val2 
 		
 		if (args.size() != 2)
 		{
@@ -107,7 +106,7 @@ bool getStartArg(int argc, char* argv[]) {
 		currIndex++;
 	}
 
-
+	//ServerInfo::getInstance()返回单例ServerInfo
 	ServerInfo::getInstance().setServerPort(serverPort);
 	ServerInfo::getInstance().setDbUsername(dbUsername);
 	ServerInfo::getInstance().setDbPassword(dbPassword);
